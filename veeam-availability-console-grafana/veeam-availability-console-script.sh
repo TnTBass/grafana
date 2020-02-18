@@ -21,14 +21,14 @@
 # Configurations
 ##
 # Endpoint URL for InfluxDB
-InfluxDBURL="YOURINFLUXDB"
+InfluxDBURL="YOURINFLUXDB"  #EG: localhost
 InfluxDBPort="8086" #Default Port
 InfluxDB="telegraf" #Default Database
 
 # Endpoint URL for login action
-Username="YOURVACUSER"
-Password="YOURVACPASSWORD"
-RestServer="YOURVACURL"
+Username="YOURVACUSER"  #EG: my_vac_user
+Password="YOURVACPASSWORD"  #EG: Password.
+RestServer="YOURVACURL" #EG: https://myvac.example.com
 RestPort="1281" #Default Port
 Bearer=$(curl -X POST --header "Content-Type: application/x-www-form-urlencoded" --header "Accept: application/json" -d "grant_type=password&username=$Username&password=$Password" "$RestServer:$RestPort/token" -k --silent | jq -r '.access_token')
 
